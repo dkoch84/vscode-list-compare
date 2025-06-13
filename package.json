@@ -1,0 +1,47 @@
+{
+  "name": "vscode-list-compare",
+  "displayName": "List Compare",
+  "description": "Compare two lists with visual highlighting",
+  "version": "0.0.1",
+  "publisher": "your-publisher-name",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dkoch84/vscode-list-compare.git"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "listCompare.compare",
+        "title": "Compare Lists",
+        "category": "List Compare"
+      },
+      {
+        "command": "listCompare.clear",
+        "title": "Clear Highlighting",
+        "category": "List Compare"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile:prod",
+    "compile": "tsc -p ./",
+    "compile:prod": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "echo 'Linting completed (no linter configured)'",
+    "package": "npx @vscode/vsce package"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.74.0",
+    "@types/node": "16.x",
+    "typescript": "^4.9.4",
+    "@vscode/vsce": "^2.22.0"
+  }
+}
