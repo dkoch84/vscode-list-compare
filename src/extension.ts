@@ -19,11 +19,17 @@ export function activate(context: vscode.ExtensionContext) {
     });
 
     // Register the compare command
-    let disposable = vscode.commands.registerCommand('listCompare.compare', () => {
+    let compareDisposable = vscode.commands.registerCommand('listCompare.compare', () => {
         compareLists();
     });
 
-    context.subscriptions.push(disposable);
+    // Register the clear command
+    let clearDisposable = vscode.commands.registerCommand('listCompare.clear', () => {
+        clearHighlighting();
+    });
+
+    context.subscriptions.push(compareDisposable);
+    context.subscriptions.push(clearDisposable);
 }
 
 function compareLists() {
@@ -106,6 +112,18 @@ function compareLists() {
     vscode.window.showInformationMessage(
         `Comparison complete! File 1: ${matches1} matches, ${noMatches1} unique. File 2: ${matches2} matches, ${noMatches2} unique.`
     );
+}
+
+function clearHighlighting() {
+    // Get all visible text editors and clear decorations
+    const visibleEditors = vscode.window.visibleTextEditors;
+    
+    for (const editor of visibleEditors) {
+        editor.setDecorations(matchDecorationType, []);
+        editor.setDecorations(noMatchDecorationType, []);
+    }
+    
+    vscode.window.showInformationMessage('Highlighting cleared.');
 }
 
 export function deactivate() {

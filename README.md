@@ -19,6 +19,7 @@ This extension compares two lists of data and highlights matches and differences
 4. The extension will highlight:
    - **Green lines**: Items that exist in both files
    - **Blue lines**: Items that are unique to each file
+5. To clear highlighting, run "List Compare: Clear Highlighting"
 
 ## Use Cases
 - Compare repository lists between organizations

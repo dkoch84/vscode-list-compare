@@ -17,6 +17,11 @@
         "command": "listCompare.compare",
         "title": "Compare Lists",
         "category": "List Compare"
+      },
+      {
+        "command": "listCompare.clear",
+        "title": "Clear Highlighting",
+        "category": "List Compare"
       }
     ]
   },
